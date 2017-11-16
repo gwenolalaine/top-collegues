@@ -18,7 +18,9 @@
   </div>
 </div>
   <button class="btn btn-primary"(click)="add(pseudo, imageUrl)">Ajouter un nouveau collegue</button>
-  <ngb-alert class="confirm" [hidden]="onAdd" role="alert" (close)="onAdd = true">Ajout réussi</ngb-alert>
+  <ngb-alert [hidden]="onAdd" role="alert" (close)="onAdd = true">Ajout réussi</ngb-alert>
+  <ngb-alert [hidden]="onError" role="alert" (close)="onError = true">Vous devez remplir tous les champs</ngb-alert>
+  
 </div>
 </div>
 
