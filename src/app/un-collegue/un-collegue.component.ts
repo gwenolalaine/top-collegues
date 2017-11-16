@@ -9,10 +9,8 @@ import { CollegueService } from '../shared/service/collegue.service'
   styleUrls: ['./un-collegue.component.css']
 })
 export class UnCollegueComponent implements OnInit {
-  collegueService:CollegueService;
   @Input() collegue:Collegue;
-  constructor() { 
-    this.collegueService = new CollegueService();
+  constructor(private collegueService:CollegueService) { 
   }
 
   ngOnInit() {

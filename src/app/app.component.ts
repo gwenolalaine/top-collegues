@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
 
   add(pseudo:HTMLInputElement, imageUrl: HTMLInputElement) {
     if(pseudo.value != "" && imageUrl.value != "") {
-      this.collegueService.sauvegarder(new Collegue(pseudo.value, imageUrl.value));
+      this.collegueService.sauvegarder(new Collegue(pseudo.value, imageUrl.value)).then(col=>{this.collegues.push(col)});
       
       this.onAdd = false;
     }else{

@@ -1,31 +1,35 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="card bg-light p-2 mb-1">
-  <div class="card-body">
-  <h1>
-    Top collegues
-  </h1>
-  <h5>Les meilleurs collegues du moment </h5>
-  <div class="row">
-  <label class="col-md-3">Pseudo</label>
-  <div class="col-md-9">
-    <input type="text" class="form-control" #pseudo>
-  </div>
-</div>
-  <div class="row">
-  <label class="col-md-3">URL image </label>
-  <div class="col-md-9">
-    <input type="text" class="form-control" #imageUrl>
-  </div>
-</div>
-  <button class="btn btn-primary"(click)="add(pseudo, imageUrl)">Ajouter un nouveau collegue</button>
-  <ngb-alert [hidden]="onAdd" role="alert" (close)="onAdd = true">Ajout réussi</ngb-alert>
-  <ngb-alert [hidden]="onError" role="alert" (close)="onError = true">Vous devez remplir tous les champs</ngb-alert>
-  
-</div>
-</div>
+<div class="container-fluid">
+  <div class="card bg-light p-2 mb-1">
+    <div class="card-body">
+      <h1>
+        Top collegues
+      </h1>
+      <h5>Les meilleurs collegues du moment </h5>
+      <div class="row">
+        <label class="col-md-3">Pseudo</label>
+        <div class="col-md-9">
+          <input type="text" class="form-control" #pseudo>
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-md-3">URL image </label>
+        <div class="col-md-9">
+          <input type="text" class="form-control" #imageUrl>
+        </div>
+      </div>
+      <button class="btn btn-primary" (click)="add(pseudo, imageUrl)">Ajouter un nouveau collegue</button>
+      <ngb-alert [hidden]="onAdd" role="alert" (close)="onAdd = true">Ajout réussi</ngb-alert>
+      <ngb-alert [hidden]="onError" role="alert" (close)="onError = true">Vous devez remplir tous les champs</ngb-alert>
 
-<div class="row">
-    <div class="text-center card col-3" *ngFor="let collegue of collegues">
-  <app-un-collegue [collegue]="collegue"></app-un-collegue>
-</div>
+    </div>
+  </div>
+
+  <div class="row">
+
+
+    <div *ngFor="let collegue of collegues" class="col-2 text-center" width="20rem">
+      <app-un-collegue [collegue]="collegue"></app-un-collegue>
+    </div>
+  </div>
+
 </div>

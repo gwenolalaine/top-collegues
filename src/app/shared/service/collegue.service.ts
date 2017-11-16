@@ -1,52 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Collegue } from '../domain/collegue';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
 @Injectable()
 export class CollegueService {
-  // données en mémoire
-  collegues:Collegue[]
 
-  constructor() {
-    this.collegues=[new Collegue("Leslie Knope", "https://tribzap2it.files.wordpress.com/2016/11/amy-poehler-leslie-knope-parks-and-recreation1.jpg"),
-    new Collegue("Ron Swanson", "data:image/jpeg;base64,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"),
-    new Collegue("April", "https://burymeinstyle.files.wordpress.com/2011/02/parks-and-recreation-april-with-a-post-it1.png")]
+  constructor(private http: HttpClient){
 
   }
   
   listerCollegues():Promise<Collegue[]> {
-    return new Promise((resolve, reject) =>{
-      resolve(this.collegues);
-    });
+    return this.http.get<Collegue[]>('http://localhost:8080/collegues/').toPromise();
   }
 
   sauvegarder(newCollegue:Collegue):Promise<Collegue> {
-    this.collegues.push(newCollegue)
-    return new Promise((resolve, reject) =>{
-      resolve (newCollegue);
-    })
+    return this.http.post<Collegue>('http://localhost:8080/collegues/', newCollegue,
+      httpOptions).toPromise();
   }
   
   aimerUnCollegue(unCollegue:Collegue):Promise<Collegue> {
-      let index = this.collegues.findIndex(c=>c.nom==unCollegue.nom)
-      this.collegues[index].score += 10;
-        return new Promise((resolve, reject) =>{
-          resolve(this.collegues[index]);
-      });
-    }
+    unCollegue.score += 10;
+    return this.http.put<Collegue>(`http://localhost:8080/collegues/${unCollegue.nom}/score`, unCollegue,
+    httpOptions).toPromise();
+  }
   
-    detesterUnCollegue(unCollegue:Collegue):Promise<Collegue> {
-      let index = this.collegues.findIndex(c=>c.nom==unCollegue.nom)
-      this.collegues[index].score += 10;
-        return new Promise((resolve, reject) =>{
-          resolve(this.collegues[index]);
-      });
-    }
+  detesterUnCollegue(unCollegue:Collegue):Promise<Collegue> {
+    unCollegue.score -= 5;
+    return this.http.put<Collegue>(`http://localhost:8080/collegues/${unCollegue.nom}/score`, unCollegue,
+    httpOptions).toPromise();
+  }
 
   deleteUnCollegue(unCollegue:Collegue):Promise<Collegue> {
-    let index = this.collegues.findIndex(c=>c.nom==unCollegue.nom)
-    this.collegues.pop[index];
-    return new Promise((resolve, reject) =>{
-      resolve(this.collegues[index]);
-    });
+    return null
   }
 }
