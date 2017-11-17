@@ -23,13 +23,13 @@
 
     </div>
   </div>
+      <ul class="nav nav-pills">
+          <li class="nav-item"><a class="nav-link" routerLink="/classique" RouterLinkActive="active-link">Classique</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/tableau" RouterLinkActive="active-link">Tableau</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/carrousel" RouterLinkActive="active-link">Carrousel</a></li>
+        </ul>
+      <router-outlet></router-outlet>
+            
 
-  <div class="row">
-
-
-    <div *ngFor="let collegue of collegues" class="col-2 text-center" width="20rem">
-      <app-un-collegue [collegue]="collegue"></app-un-collegue>
-    </div>
-  </div>
 
 </div>

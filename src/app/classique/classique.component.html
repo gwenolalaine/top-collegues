@@ -1,0 +1,13 @@
+<div class="row">
+  <div *ngFor="let collegue of collegues" class="col-2 text-center" width="20rem">
+
+    <div class="card ">
+        <a routerLink="/details/{{collegue.nom}}" RouterLinkActive="active-link"><img class="card-img-top img-rounded" src={{collegue.imageUrl}} alt="Photo du collegue" width="100%" height="250px" style="border-radius:100"
+      /></a>
+      <div class="card-block">
+        <h4 class="card-title"> {{collegue.nom}}</h4>
+        <h4>{{collegue.score}}</h4>
+        <app-un-collegue [collegue]="collegue"></app-un-collegue>
+      </div>
+    </div>
+  </div>

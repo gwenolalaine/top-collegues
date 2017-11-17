@@ -9,12 +9,14 @@ import { CollegueService } from '../shared/service/collegue.service'
   styleUrls: ['./un-collegue.component.css']
 })
 export class UnCollegueComponent implements OnInit {
+  collegues:Collegue[]
+
   @Input() collegue:Collegue;
   constructor(private collegueService:CollegueService) { 
   }
 
   ngOnInit() {
-  
+    this.collegueService.listerCollegues().then(collegue => this.collegues = collegue );
   }
 
   jaime(){

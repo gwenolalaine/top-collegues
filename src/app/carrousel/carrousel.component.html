@@ -1,0 +1,11 @@
+<ngb-carousel>
+    <ng-template ngbSlide *ngFor="let collegue of collegues">
+      <a routerLink="/details/{{collegue.nom}}" RouterLinkActive="active-link"><img src={{collegue.imageUrl}} class="rounded mx-auto d-block" alt="Photo du collegue"/></a>
+      <div class="carousel-caption">
+        <h2>{{collegue.score}}</h2>
+        <button class="btn btn-outline-primary" (click)="jaime()">J'aime</button>
+        <button class="btn btn-outline-danger" (click)="jedeteste()">Je déteste</button>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+  

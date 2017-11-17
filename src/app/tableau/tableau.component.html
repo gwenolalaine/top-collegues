@@ -1,0 +1,24 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col" >Pseudo</th>
+        <th scope="col">Score</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let collegue of collegues">
+          <td scope="row">
+            <a routerLink="/details/{{collegue.nom}}" RouterLinkActive="active-link"><img class="card-img-top img-thumbnail" src={{collegue.imageUrl}} alt="Photo du collegue" style="width:200px" /></a>
+          </td>
+          <td scope="row">{{collegue.nom}}</td>
+          <td scope="row">{{collegue.score}}</td>
+          <td scope="row">
+            <app-un-collegue [collegue]="collegue"></app-un-collegue>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
