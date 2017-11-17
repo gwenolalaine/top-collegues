@@ -7,7 +7,9 @@
       <div class="card-block">
         <h4 class="card-title"> {{collegue.nom}}</h4>
         <h4>{{collegue.score}}</h4>
-        <app-un-collegue [collegue]="collegue"></app-un-collegue>
+        
+        <button (click)="jaime(collegue)" class="btn btn-outline-primary">J'aime</button>
+        <button (click)="jedeteste(collegue)" class="btn btn-outline-danger">Je déteste</button>     
       </div>
     </div>
   </div>

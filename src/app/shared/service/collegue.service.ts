@@ -24,14 +24,12 @@ export class CollegueService {
   }
   
   aimerUnCollegue(unCollegue:Collegue):Promise<Collegue> {
-    unCollegue.score += 10;
-    return this.http.put<Collegue>(`http://localhost:8080/collegues/${unCollegue.nom}/score`, unCollegue,
+    return this.http.put<Collegue>(`http://localhost:8080/collegues/${unCollegue.nom}/score`,  {"avis" : "jaime"},
     httpOptions).toPromise();
   }
   
   detesterUnCollegue(unCollegue:Collegue):Promise<Collegue> {
-    unCollegue.score -= 5;
-    return this.http.put<Collegue>(`http://localhost:8080/collegues/${unCollegue.nom}/score`, unCollegue,
+    return this.http.put<Collegue>(`http://localhost:8080/collegues/${unCollegue.nom}/score`,  {"avis" : "jedeteste"},
     httpOptions).toPromise();
   }
 

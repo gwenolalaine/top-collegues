@@ -3,8 +3,9 @@
       <a routerLink="/details/{{collegue.nom}}" RouterLinkActive="active-link"><img src={{collegue.imageUrl}} class="rounded mx-auto d-block" alt="Photo du collegue"/></a>
       <div class="carousel-caption">
         <h2>{{collegue.score}}</h2>
-        <button class="btn btn-outline-primary" (click)="jaime()">J'aime</button>
-        <button class="btn btn-outline-danger" (click)="jedeteste()">Je déteste</button>
+        
+        <button (click)="jaime(collegue)" class="btn btn-outline-primary">J'aime</button>
+        <button (click)="jedeteste(collegue)" class="btn btn-outline-danger">Je déteste</button>     
       </div>
     </ng-template>
   </ngb-carousel>

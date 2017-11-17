@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UnCollegueComponent } from '../un-collegue/un-collegue.component'
+import { Conteneur } from '../conteneur/conteneur.component'
 import { Collegue } from '../shared/domain/collegue';
 import { CollegueService } from '../shared/service/collegue.service'
 
@@ -9,15 +9,17 @@ import { CollegueService } from '../shared/service/collegue.service'
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
-export class DetailComponent implements OnInit {
+export class DetailComponent extends Conteneur implements OnInit {
   collegue:Collegue
   nom: string;
-  constructor(private route: ActivatedRoute, private collegueService: CollegueService) {
+
+  constructor(private route: ActivatedRoute, collegueService: CollegueService) {
+    super(collegueService)
     route.params.subscribe(params => { this.nom = params['nom']; });
   }
 
   ngOnInit() {
-    this.collegueService.listerCollegues().then(collegues=>this.collegue = collegues.filter(c=>c.nom == this.nom)[0]);
+    this.collegueService.listerCollegues().then(collegues=>this.collegue = collegues.find(c=>c.nom == this.nom));
   }
 
 }
