@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Collegue } from '../domain/collegue';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from '../../../environments/environment'
+import { ScorePipe } from '../pipe/score.pipe'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -29,11 +30,11 @@ export class CollegueService {
   }
   
   detesterUnCollegue(unCollegue:Collegue):Promise<Collegue> {
-    return this.http.put<Collegue>(environment.apiUrl +  `/collegues/${unCollegue.nom}/score`,  {"avis" : "jedeteste"},
+    return this.http.put<Collegue>(environment.apiUrl +  `/collegues/${unCollegue.nom}/score`,  {"avis" : "jeDeteste"},
     httpOptions).toPromise();
   }
 
   deleteUnCollegue(unCollegue:Collegue):Promise<Collegue> {
-    return null
+    return this.http.delete<Collegue>(environment.apiUrl + `/collegues/${unCollegue.nom}`, httpOptions).toPromise();
   }
 }

@@ -20,7 +20,6 @@
       <button class="btn btn-primary" (click)="add(pseudo, imageUrl)">Ajouter un nouveau collegue</button>
       <ngb-alert [hidden]="onAdd" role="alert" (close)="onAdd = true">Ajout réussi</ngb-alert>
       <ngb-alert [hidden]="onError" role="alert" (close)="onError = true">Vous devez remplir tous les champs</ngb-alert>
-
     </div>
   </div>
       <ul class="nav nav-justified">
@@ -28,8 +27,8 @@
           <li class="nav-item"><a class="nav-link" routerLink="/tableau" RouterLinkActive="active-link"><h3>Tableau</h3></a></li>
           <li class="nav-item"><a class="nav-link" routerLink="/carrousel" RouterLinkActive="active-link"><h3>Carrousel</h3></a></li>
         </ul>
+      
       <router-outlet></router-outlet>
-            
-
+          
 
 </div>

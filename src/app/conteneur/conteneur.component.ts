@@ -5,7 +5,9 @@ import { CollegueService } from '../shared/service/collegue.service'
 
 export class Conteneur implements OnInit {
   collegues:Collegue[]
-
+  limite:number = 3;
+  nom:string = "";
+  
   constructor(public collegueService:CollegueService) { 
   }
 
@@ -38,4 +40,18 @@ export class Conteneur implements OnInit {
       this.collegues.sort(this.compare)
     })
   }
+
+  deleteUnCollegue(collegue:Collegue){
+    this.collegueService.deleteUnCollegue(collegue);
+  }
+
+
+  limiter($event){
+    this.limite = $event.target.value;
+  }
+
+  chercherNom($event){
+    this.nom = $event.target.value;
+  }
+
 }

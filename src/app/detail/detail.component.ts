@@ -22,4 +22,9 @@ export class DetailComponent extends Conteneur implements OnInit {
     this.collegueService.listerCollegues().then(collegues=>this.collegue = collegues.find(c=>c.nom == this.nom));
   }
 
+  
+  retour(){
+    history.back()
+  }
+
 }

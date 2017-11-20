@@ -10,10 +10,11 @@
     </thead>
     <tbody>
         <tr *ngFor="let collegue of collegues">
+            <button (click)="deleteUnCollegue(collegue.nom)" class="btn btn-outline-danger">X</button>
           <td scope="row">
             <a routerLink="/details/{{collegue.nom}}" RouterLinkActive="active-link"><img class="card-img-top img-thumbnail" src={{collegue.imageUrl}} alt="Photo du collegue" style="width:200px" /></a>
           </td>
-          <td scope="row">{{collegue.nom}}</td>
+          <td scope="row">{{collegue.nom | uppercase}}</td>
           <td scope="row">{{collegue.score}}</td>
           <td scope="row">
               <button (click)="jaime(collegue)" class="btn btn-outline-primary">J'aime</button>
