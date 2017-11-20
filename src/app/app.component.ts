@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Collegue } from './shared/domain/collegue';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
-import { UnCollegueComponent } from './un-collegue/un-collegue.component'
 import { CollegueService } from './shared/service/collegue.service'
 
 @Component({
