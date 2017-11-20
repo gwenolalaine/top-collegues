@@ -7,7 +7,7 @@ export class Conteneur implements OnInit {
   collegues:Collegue[]
   limite:number = 3;
   nom:string = "";
-  
+
   constructor(public collegueService:CollegueService) { 
   }
 
@@ -41,8 +41,8 @@ export class Conteneur implements OnInit {
     })
   }
 
-  deleteUnCollegue(collegue:Collegue){
-    this.collegueService.deleteUnCollegue(collegue);
+  deleteUnCollegue(nom:string){
+    this.collegueService.deleteUnCollegue(nom);
   }
 
 
