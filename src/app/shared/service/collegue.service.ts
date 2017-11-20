@@ -34,7 +34,7 @@ export class CollegueService {
     httpOptions).toPromise();
   }
 
-  deleteUnCollegue(unCollegue:Collegue):Promise<Collegue> {
-    return this.http.delete<Collegue>(environment.apiUrl + `/collegues/${unCollegue.nom}`, httpOptions).toPromise();
+  deleteUnCollegue(nom:string):Promise<Collegue> {
+    return this.http.delete<Collegue>(environment.apiUrl + `/collegues/${nom}`, httpOptions).toPromise();
   }
 }
