@@ -16,8 +16,16 @@ export class CollegueService {
   
   subject:BehaviorSubject<Collegue[]>  = new BehaviorSubject([])
   subjectAvis:BehaviorSubject<Avis>  = new BehaviorSubject(null)
+  enligne:BehaviorSubject<Boolean> = new BehaviorSubject(false);
 
   constructor(private http: HttpClient){
+    if(http.request != null){
+      this.enligne.next(true);
+    }else{
+      this.enligne.next(false);
+    }
+
+    console.log(this.enligne)
     this.refresh()
   }
 
@@ -25,6 +33,9 @@ export class CollegueService {
     return this.subjectAvis
   }
 
+  obtenirConnexion():BehaviorSubject<Boolean>{
+    return this.enligne
+  }
 
   refresh():void{
     this.http.get<Collegue[]>(environment.apiUrl + '/collegues/').subscribe(cols => this.subject.next(cols))

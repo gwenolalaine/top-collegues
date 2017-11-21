@@ -13,6 +13,7 @@ import { ScorePipe } from './shared/pipe/score.pipe';
 import { PseudoPipe } from './shared/pipe/pseudo.pipe';
 import {Observable} from "rxjs/Observable";
 import { VotreDernierAvisComponent } from './votre-dernier-avis/votre-dernier-avis.component';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 const appRoutes: Routes = [
   { path: 'classique', component: ClassiqueComponent },
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     DetailComponent,
     ScorePipe,
     PseudoPipe,
-    VotreDernierAvisComponent
+    VotreDernierAvisComponent,
+    ConnexionComponent
   ],
   imports: [
     BrowserModule,

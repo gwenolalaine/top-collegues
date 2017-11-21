@@ -4,4 +4,4 @@
   <ngb-alert [hidden]="avis.avis != false" type=danger (close)="avis.avis != true">Je déteste {{avis.collegueNom}}</ngb-alert>
  
 </div>
-<ngb-alert [hidden]="avis!=undefined" role="alert" (close)="vote = null">Aucun vote</ngb-alert>
+<ngb-alert [hidden]="avis!=undefined" role="alert" (close)="avis.avis == undefined">Aucun vote</ngb-alert>
