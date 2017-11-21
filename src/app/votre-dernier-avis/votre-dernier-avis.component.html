@@ -1,0 +1,7 @@
+
+<div *ngIf="avis!=undefined">
+  <ngb-alert [hidden]="avis.avis != true" type=success  (close)="avis.avis != false">J'aime {{avis.collegueNom}}</ngb-alert>
+  <ngb-alert [hidden]="avis.avis != false" type=danger (close)="avis.avis != true">Je déteste {{avis.collegueNom}}</ngb-alert>
+ 
+</div>
+<ngb-alert [hidden]="avis!=undefined" role="alert" (close)="vote = null">Aucun vote</ngb-alert>

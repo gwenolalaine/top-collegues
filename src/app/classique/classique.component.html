@@ -7,9 +7,8 @@
       <div class="input-group-addon">Filtrer par nom</div>
       <input type="text" class="form-control"  (keyup)="chercherNom($event)" placeholder="Chercher par nom"/>
     </div>
-
 <div class="row">
-  <div *ngFor="let collegue of collegues  | slice:0:limite | pseudo:nom"  class="col-2 text-center" width="20rem">
+  <div *ngFor="let collegue of collegues  | slice:0:limite | pseudo:nom"  class="col-md-2 text-center" width="20rem">
        <div class="card ">
 
         <a routerLink="/details/{{collegue.nom}}" RouterLinkActive="active-link"><img class="card-img-top img-rounded" src={{collegue.imageUrl}} alt="Photo du collegue" width="100%" height="250px" style="border-radius:100"

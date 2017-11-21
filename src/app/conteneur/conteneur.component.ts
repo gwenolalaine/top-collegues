@@ -2,17 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { Collegue } from '../shared/domain/collegue';
 import { Input } from '@angular/core';
 import { CollegueService } from '../shared/service/collegue.service'
+import {Observable, BehaviorSubject} from "rxjs/Rx";
 
 export class Conteneur implements OnInit {
-  collegues:Collegue[]
+  collegues:Collegue[] = []
   limite:number = 3;
   nom:string = "";
+  avis:Observable<Boolean>;
+  avisSubject:BehaviorSubject<Boolean>
 
   constructor(public collegueService:CollegueService) { 
   }
 
   ngOnInit() {
-    this.collegueService.listerCollegues().then(collegue => this.collegues = collegue );
+    this.collegueService.listerCollegues().subscribe(collegue => this.collegues = collegue);
   }
 
   compare(a, b) {
@@ -24,21 +27,28 @@ export class Conteneur implements OnInit {
   }
 
   jaime(collegue:Collegue){
-    this.collegueService.aimerUnCollegue(collegue).then(data => {
+    this.collegueService.aimerUnCollegue(collegue).subscribe(data => {
       collegue = data
       this.collegues = this.collegues.filter(c => c.nom != collegue.nom)
       this.collegues.push(data)
       this.collegues.sort(this.compare)
     })
+    if(this.avis != null){
+    this.avis.subscribe(value => value=true)
+    }
   }
 
   jedeteste(collegue:Collegue) {
-    this.collegueService.detesterUnCollegue(collegue).then(data => {
+    this.collegueService.detesterUnCollegue(collegue).subscribe(data => {
       collegue = data
       this.collegues = this.collegues.filter(c => c.nom != collegue.nom)
       this.collegues.push(data)
       this.collegues.sort(this.compare)
     })
+    if(this.avis != null){
+    this.avis.subscribe(value => value=false)
+    console.log(this.avis)
+    }
   }
 
   deleteUnCollegue(nom:string){

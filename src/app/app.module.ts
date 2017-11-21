@@ -11,6 +11,8 @@ import { CarrouselComponent } from './carrousel/carrousel.component';
 import { DetailComponent } from './detail/detail.component';
 import { ScorePipe } from './shared/pipe/score.pipe';
 import { PseudoPipe } from './shared/pipe/pseudo.pipe';
+import {Observable} from "rxjs/Observable";
+import { VotreDernierAvisComponent } from './votre-dernier-avis/votre-dernier-avis.component';
 
 const appRoutes: Routes = [
   { path: 'classique', component: ClassiqueComponent },
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     CarrouselComponent,
     DetailComponent,
     ScorePipe,
-    PseudoPipe
+    PseudoPipe,
+    VotreDernierAvisComponent
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,7 @@ export class DetailComponent extends Conteneur implements OnInit {
   }
 
   ngOnInit() {
-    this.collegueService.listerCollegues().then(collegues=>this.collegue = collegues.find(c=>c.nom == this.nom));
+    this.collegueService.listerCollegues().subscribe(collegues=>this.collegue = collegues.find(c=>c.nom == this.nom));
   }
 
   

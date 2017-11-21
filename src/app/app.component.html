@@ -19,7 +19,7 @@
       </div>
       <button class="btn btn-primary" (click)="add(pseudo, imageUrl)">Ajouter un nouveau collegue</button>
       <ngb-alert [hidden]="onAdd" role="alert" (close)="onAdd = true">Ajout réussi</ngb-alert>
-      <ngb-alert [hidden]="onError" role="alert" (close)="onError = true">Vous devez remplir tous les champs</ngb-alert>
+      <ngb-alert [hidden]="onError" role="alert" type="danger"(close)="onError = true">Vous devez remplir tous les champs</ngb-alert>
     </div>
   </div>
       <ul class="nav nav-justified">
@@ -32,3 +32,4 @@
           
 
 </div>
+<app-votre-dernier-avis></app-votre-dernier-avis>
