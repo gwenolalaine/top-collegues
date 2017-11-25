@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Prod
 
-https://dist-pumpweekll.now.sh/
+https://dist-nxaewhicuc.now.sh/

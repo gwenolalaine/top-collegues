@@ -6,8 +6,8 @@
           <button (click)="deleteUnCollegue(collegue.nom)" class="btn btn-outline-danger">X</button>
         <h2>{{collegue.score}}</h2>
         
-        <button (click)="jaime(collegue)" class="btn btn-outline-primary">J'aime</button>
-        <button (click)="jedeteste(collegue)" class="btn btn-outline-danger">Je déteste</button>     
+        <button (click)="jaime(collegue)" class="btn btn-outline-primary" [disabled]="!actif">J'aime</button>
+        <button (click)="jedeteste(collegue)" class="btn btn-outline-danger" [disabled]="!actif">Je déteste</button>     
       </div>
     </ng-template>
   </ngb-carousel>

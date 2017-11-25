@@ -17,8 +17,8 @@
           <td scope="row">{{collegue.nom | uppercase}}</td>
           <td scope="row">{{collegue.score}}</td>
           <td scope="row">
-              <button (click)="jaime(collegue)" class="btn btn-outline-primary">J'aime</button>
-              <button (click)="jedeteste(collegue)" class="btn btn-outline-danger">Je déteste</button>     
+              <button (click)="jaime(collegue)" class="btn btn-outline-primary" [disabled]="!actif">J'aime</button>
+              <button (click)="jedeteste(collegue)" class="btn btn-outline-danger" [disabled]="!actif">Je déteste</button>     
           </td>
         </tr>
     </tbody>

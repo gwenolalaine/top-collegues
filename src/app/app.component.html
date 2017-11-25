@@ -19,7 +19,7 @@
           <input type="text" class="form-control" #imageUrl>
         </div>
       </div>
-      <button class="btn btn-primary" (click)="add(pseudo, imageUrl)">Ajouter un nouveau collegue</button>
+      <button class="btn btn-primary" (click)="add(pseudo, imageUrl)" [disabled]="!actif">Ajouter un nouveau collegue</button>
       <ngb-alert [hidden]="onAdd" role="alert" (close)="onAdd = true">Ajout réussi</ngb-alert>
       <ngb-alert [hidden]="onError" role="alert" type="danger"(close)="onError = true">Vous devez remplir tous les champs</ngb-alert>
     </div>

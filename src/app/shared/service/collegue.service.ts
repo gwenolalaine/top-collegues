@@ -4,7 +4,9 @@ import { Avis} from '../domain/avis';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from '../../../environments/environment'
 import { ScorePipe } from '../pipe/score.pipe'
-import {Observable, BehaviorSubject} from "rxjs/Rx";
+import { BehaviorSubject} from "rxjs/BehaviorSubject";
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/interval'
 
 
 const httpOptions = {
@@ -19,14 +21,10 @@ export class CollegueService {
   enligne:BehaviorSubject<Boolean> = new BehaviorSubject(false);
 
   constructor(private http: HttpClient){
-    if(http.request != null){
-      this.enligne.next(true);
-    }else{
-      this.enligne.next(false);
-    }
-
     console.log(this.enligne)
     this.refresh()
+    this.testConnexion();
+    Observable.interval(5000).subscribe(value => this.testConnexion())
   }
 
   obtenirAvis():BehaviorSubject<Avis>{
@@ -36,6 +34,11 @@ export class CollegueService {
   obtenirConnexion():BehaviorSubject<Boolean>{
     return this.enligne
   }
+
+  testConnexion(){
+    this.http.get<boolean>(`${environment.apiUrl}/etat`).subscribe(etat => { this.enligne.next(true) }, error => { this.enligne.next(false) })
+  }
+
 
   refresh():void{
     this.http.get<Collegue[]>(environment.apiUrl + '/collegues/').subscribe(cols => this.subject.next(cols))

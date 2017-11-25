@@ -17,8 +17,8 @@
         <h4 class="card-title"> {{collegue.nom | uppercase}}</h4>
         <h4 [innerHTML]="collegue.score | score"></h4>
         
-        <button (click)="jaime(collegue)" class="btn btn-outline-primary">J'aime</button>
-        <button (click)="jedeteste(collegue)" class="btn btn-outline-danger">Je déteste</button>     
+        <button (click)="jaime(collegue)" class="btn btn-outline-primary" [disabled]="!actif">J'aime</button>
+        <button (click)="jedeteste(collegue)" class="btn btn-outline-danger" [disabled]="!actif">Je déteste</button>     
       </div>
       <button (click)="deleteUnCollegue(collegue.nom)" class="btn btn-outline-danger">X</button>
       

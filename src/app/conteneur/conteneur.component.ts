@@ -10,12 +10,14 @@ export class Conteneur implements OnInit {
   nom:string = "";
   avis:Observable<Boolean>;
   avisSubject:BehaviorSubject<Boolean>
-
+  actif:Boolean;
+  
   constructor(public collegueService:CollegueService) { 
   }
 
   ngOnInit() {
     this.collegueService.listerCollegues().subscribe(collegue => this.collegues = collegue);
+    this.collegueService.obtenirConnexion().subscribe(etat=>{this.actif = etat})
   }
 
   compare(a, b) {

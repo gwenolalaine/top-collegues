@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   collegues:Collegue[] = [];
   onAdd:boolean;
   onError:ConstrainBoolean;
+  actif:Boolean
   
   constructor(public collegueService:CollegueService){
 
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit {
     this.onAdd = true; 
     this.onError = true;
     this.collegueService.listerCollegues().subscribe(collegues => this.collegues = collegues);
+    this.collegueService.obtenirConnexion().subscribe(etat=>{this.actif = etat})
 }
 
   add(pseudo:HTMLInputElement, imageUrl: HTMLInputElement) {
